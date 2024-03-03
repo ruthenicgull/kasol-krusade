@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   margin: var(--primary-block-margin);
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .menu {
@@ -22,4 +22,8 @@
 
 .menu > li:hover {
   transform: scale(1.1);
+}
+
+.icon {
+  height: 3rem;
 }

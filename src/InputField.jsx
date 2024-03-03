@@ -1,0 +1,30 @@
+import React from "react";
+import styles from "./Booking.module.css";
+
+function InputField({ id, label, type, acceptType, changeHandler }) {
+  return (
+    <div className={styles.input}>
+      <label className={styles.label} htmlFor={id}>
+        {label}
+      </label>
+      {acceptType ? (
+        <input
+          className={styles.image_field}
+          type={type}
+          id={id}
+          accept={acceptType}
+          onChange={changeHandler}
+        />
+      ) : (
+        <input
+          className={styles.field}
+          type={type}
+          id={id}
+          onChange={changeHandler}
+        />
+      )}
+    </div>
+  );
+}
+
+export default InputField;
