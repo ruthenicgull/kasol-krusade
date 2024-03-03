@@ -1,0 +1,49 @@
+.container {
+  background-image: url("/banner_bg.jpg");
+  background-size: cover;
+  height: 85vh;
+  border-radius: 1rem;
+  margin: var(--primary-block-margin);
+  color: white;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: darken;
+  padding: 2rem;
+  position: relative;
+  font-family: var(--secondary-font);
+}
+
+.hero_content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  gap: 1rem;
+}
+
+.hero_title {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.hero_text {
+  text-align: center;
+}
+
+.button {
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+  outline: none;
+  border: 1px solid white;
+  background-color: white;
+  font-family: var(--primary-font);
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(1.08);
+}

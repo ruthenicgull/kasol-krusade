@@ -1,2 +1,15 @@
 :root {
+  --primary-font: "Poppins", sans-serif;
+  --secondary-font: "Josefin Sans", sans-serif;
+  --primary-block-margin: 0 2rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  font-family: var(--primary-font);
 }

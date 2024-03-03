@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--primary-block-margin);
+  padding: 1rem;
+}
+
+.menu {
+  font-size: 0.9rem;
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.menu > li {
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  padding: 0 0.25rem;
+  border-radius: 1rem;
+}
+
+.menu > li:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: black;
+}
