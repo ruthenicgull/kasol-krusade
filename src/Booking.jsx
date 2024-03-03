@@ -17,16 +17,49 @@ function Booking() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [image, setImage] = useState("");
 
+  function allFieldsFilled() {
+    if (
+      gender == "" ||
+      name == "" ||
+      email == "" ||
+      roll == "" ||
+      phone == "" ||
+      upi == "" ||
+      image == ""
+    ) {
+      return false;
+    }
+    return true;
+  }
+
+  function allFieldsValid() {
+    let badFields = [];
+    if (phone.length != 10) {
+      badFields.push("Phone Number");
+    }
+    if (roll.length != 9) {
+      badFields.push("Roll Number");
+    }
+    if (email.endsWith("@nitdelhi.ac.in") == false) {
+      badFields.push("Email");
+    }
+    return badFields;
+  }
+
   function handleSubmit(event) {
-    console.log({
-      roll: roll,
-      name: name,
-      gender: gender,
-      phone: phone,
-      email: email,
-      upi: upi,
-      paymentScreenshot: image,
-    });
+    event.preventDefault();
+
+    if (!allFieldsFilled()) {
+      alert("Please fill all the fields");
+      return;
+    }
+
+    let badFields = allFieldsValid();
+    if (badFields.length > 0) {
+      let fields = badFields.join(", ");
+      alert(fields + " are invalid!. Please fill them again");
+      return;
+    }
 
     async function addBooking() {
       try {
@@ -48,23 +81,32 @@ function Booking() {
 
     addBooking();
 
+    setRoll("");
     setEmail("");
     setGender("");
     setName("");
     setPhone("");
     setSelectedImage(null);
+    setImage("");
     setUpi("");
   }
 
   function handleImageUpload(event) {
     event.preventDefault();
 
+    if (!selectedImage) {
+      alert("Please choose an image to upload");
+      return;
+    } else if (image != "") {
+      alert("Image already uploaded.");
+      return;
+    }
+
     const paymentImages = ref(storage, `PaymentScreenshots/${v4()}`);
     uploadBytes(paymentImages, selectedImage).then((data) => {
       console.log(data, "images");
       getDownloadURL(data.ref).then((val) => {
         setImage(val);
-        console.log(val);
       });
     });
   }
@@ -145,24 +187,28 @@ function Booking() {
           label="Full Name"
           type="text"
           changeHandler={handleNameChange}
+          value={name}
         />
         <InputField
           id="roll"
           label="Roll Number"
           type="number"
           changeHandler={handleRollChange}
+          value={roll}
         />
         <InputField
           id="phone"
           label="Phone Number (WhatsApp)"
           type="number"
           changeHandler={handlePhoneChange}
+          value={phone}
         />
         <InputField
           id="email"
-          label="Email"
+          label="NITD Official Email"
           type="email"
           changeHandler={handleEmailChange}
+          value={email}
         />
         <RadioInput />
         <InputField
@@ -171,6 +217,7 @@ function Booking() {
           type="file"
           acceptType="image/*"
           changeHandler={handleImageChange}
+          value={selectedImage}
         />
         <button
           className={`${styles.field} ${styles.upload}`}
@@ -178,11 +225,31 @@ function Booking() {
         >
           Upload
         </button>
+        {image != "" ? (
+          <span
+            style={{
+              color: "lightgreen",
+              fontSize: "0.75rem",
+            }}
+          >
+            Uploaded
+          </span>
+        ) : (
+          <span
+            style={{
+              color: "lightcoral",
+              fontSize: "0.75rem",
+            }}
+          >
+            Please Upload
+          </span>
+        )}
         <InputField
           id="upi"
           label="UPI Transaction ID"
           type="text"
           changeHandler={handleUpiChange}
+          value={upi}
         />
         <button
           className={`${styles.field} ${styles.submit}`}

@@ -77,8 +77,9 @@
   background-color: transparent;
   color: white;
 }
-.upload:focus {
-  background-color: rgba(0, 0, 255, 0.4);
+.upload:active {
+  background-color: rgba(0, 0, 255, 0.3);
+  color: white;
 }
 
 .submit {
