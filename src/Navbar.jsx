@@ -11,7 +11,7 @@ function Navbar({ bookingScrollHandler }) {
         <li onClick={bookingScrollHandler}>Booking</li>
         <li>FAQ</li>
       </ul>
-      <p>Contact</p>
+      <MenuIcon />
     </nav>
   );
 }

@@ -13,3 +13,9 @@
 #root {
   font-family: var(--primary-font);
 }
+
+@media screen and (max-width: 400px) {
+  :root {
+    --primary-block-margin: 0 1.5rem;
+  }
+}
