@@ -5,6 +5,8 @@ import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import styles from "./Details.module.css";
+import PaymentDetails from "./PaymentDetails";
+import Itenary from "./Itenary";
 
 export default function Details() {
   const [value, setValue] = React.useState("1");
@@ -12,6 +14,7 @@ export default function Details() {
   const tabStyle = {
     color: "black",
     fontFamily: `"Poppins", sans-serif`,
+    fontSize: "0.8rem",
   };
   const panelStyle = {
     color: "white",
@@ -29,7 +32,7 @@ export default function Details() {
         sx={{
           width: "100%",
           typography: "body1",
-          margin: "0.5rem",
+          marginTop: "1rem",
         }}
       >
         <TabContext value={value}>
@@ -44,16 +47,16 @@ export default function Details() {
             }}
           >
             <TabList onChange={handleChange} aria-label="lab API tabs example">
-              <Tab label="Item One" value="1" sx={tabStyle} />
-              <Tab label="Item Two" value="2" sx={tabStyle} />
-              <Tab label="Item Three" value="3" sx={tabStyle} />
+              <Tab label="Payment" value="1" sx={tabStyle} />
+              <Tab label="Itenary" value="2" sx={tabStyle} />
+              <Tab label="Sights" value="3" sx={tabStyle} />
             </TabList>
           </Box>
           <TabPanel value="1" sx={panelStyle}>
-            Item One
+            <PaymentDetails />
           </TabPanel>
           <TabPanel value="2" sx={panelStyle}>
-            Item Two
+            <Itenary />
           </TabPanel>
           <TabPanel value="3" sx={panelStyle}>
             Item Three

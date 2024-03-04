@@ -1,0 +1,28 @@
+.accordions_list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  align-items: center;
+}
+
+.item {
+  width: 90%;
+  max-width: 35rem;
+}
+
+.list_item {
+  background-color: lightblue;
+  margin: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.list_item::marker {
+  content: "";
+}
+
+/* @media screen and (max-width: 500px) {
+  .accordions_list {
+  }
+} */
