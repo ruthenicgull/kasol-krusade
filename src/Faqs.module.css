@@ -1,0 +1,33 @@
+.container {
+  margin: var(--primary-block-margin);
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  padding: 2rem;
+  color: white;
+  gap: 1rem;
+  border-radius: 1rem;
+  background-image: url("/faqs_bg.jpg");
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-blend-mode: darken;
+}
+
+.header {
+  text-align: center;
+  font-weight: 700;
+}
+
+.header span {
+  color: lightblue;
+  font-size: 2.5rem;
+}
+
+.accordions_list {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 0.5rem;
+  max-width: 40rem;
+}
