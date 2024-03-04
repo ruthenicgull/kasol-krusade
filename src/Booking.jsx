@@ -16,7 +16,6 @@ function Booking() {
   const [upi, setUpi] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
   const [image, setImage] = useState("");
-  const [uploading, setUploading] = useState(false);
 
   function allFieldsFilled() {
     if (
@@ -103,17 +102,12 @@ function Booking() {
       return;
     }
 
-    setUploading(true);
-
     const paymentImages = ref(storage, `PaymentScreenshots/${v4()}`);
     uploadBytes(paymentImages, selectedImage).then((data) => {
-      console.log(data, "images");
       getDownloadURL(data.ref).then((val) => {
         setImage(val);
       });
     });
-
-    setUploading(false);
   }
 
   function handleImageChange(event) {
@@ -230,7 +224,7 @@ function Booking() {
         >
           Upload
         </button>
-        {image != "" ? (
+        {image != "" && (
           <span
             style={{
               color: "lightgreen",
@@ -238,15 +232,6 @@ function Booking() {
             }}
           >
             Uploaded
-          </span>
-        ) : (
-          <span
-            style={{
-              color: "lightcoral",
-              fontSize: "0.75rem",
-            }}
-          >
-            Please Upload
           </span>
         )}
         <InputField
