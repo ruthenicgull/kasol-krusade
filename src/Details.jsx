@@ -7,6 +7,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import styles from "./Details.module.css";
 import PaymentDetails from "./PaymentDetails";
 import Itenary from "./Itenary";
+import Gallery from "./Gallery";
 
 export default function Details() {
   const [value, setValue] = React.useState("1");
@@ -62,7 +63,7 @@ export default function Details() {
             <Itenary />
           </TabPanel>
           <TabPanel value="3" sx={panelStyle}>
-            Coming Soon...
+            <Gallery />
           </TabPanel>
         </TabContext>
       </Box>

@@ -38,15 +38,19 @@
   display: flex;
   align-items: center;
   text-align: center;
+  justify-content: center;
   gap: 1rem;
   padding: 0.25rem 1rem;
-  border-radius: 0.25rem;
-  backdrop-filter: blur(5px);
+  /* border-radius: 0.25rem; */
+  backdrop-filter: blur(2px);
   font-family: var(--primary-font);
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }
 
 .hero_date {
-  background-color: rgba(255, 255, 0, 0.2);
+  /* background-color: rgba(255, 255, 0, 0.2); */
+  font-size: 1.25rem;
 }
 
 .hero_deadline {

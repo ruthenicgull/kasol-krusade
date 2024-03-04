@@ -1,0 +1,15 @@
+.image_list::-webkit-scrollbar {
+  background: rgb(56, 56, 56);
+  width: 10px;
+}
+.image_list::-webkit-scrollbar-thumb {
+  background: rgb(99, 99, 99);
+  border-radius: 1rem;
+}
+.image_list::-webkit-scrollbar-thumb:hover {
+  background: rgb(139, 139, 139);
+}
+
+.image_list {
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.5);
+}
