@@ -1,9 +1,14 @@
 .container {
+  color: white;
   background-color: whitesmoke;
   margin: var(--primary-block-margin);
   margin-top: 2rem;
-  padding: 2rem;
+  padding: var(--primary-block-padding);
   border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  background-image: url(/details_bg.jpg);
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: darken;
   background-size: cover;
   background-position: center center;
 }
@@ -11,4 +16,9 @@
 .title {
   text-align: center;
   font-size: 2rem;
+  font-weight: 500;
+}
+
+.tab {
+  color: white;
 }

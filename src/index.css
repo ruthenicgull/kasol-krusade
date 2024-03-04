@@ -2,6 +2,7 @@
   --primary-font: "Poppins", sans-serif;
   --secondary-font: "Josefin Sans", sans-serif;
   --primary-block-margin: 0 2rem;
+  --primary-block-padding: 3rem 2rem;
 }
 
 * {

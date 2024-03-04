@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import Navbar from "./Navbar";
 import Banner from "./Banner";
@@ -34,9 +33,9 @@ function App() {
 
       <Banner bookingScrollHandler={handleBookingClick} />
 
-      {/* <div ref={details}>
+      <div ref={details}>
         <Details />
-      </div> */}
+      </div>
 
       <div ref={booking}>
         <Booking />

@@ -1,7 +1,7 @@
 .container {
   margin: var(--primary-block-margin);
   margin-top: 2rem;
-  padding: 2rem;
+  padding: var(--primary-block-padding);
   background-image: url("/form_image.jpg");
   background-color: rgba(0, 0, 0, 0.5);
   background-blend-mode: darken;

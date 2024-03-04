@@ -9,6 +9,15 @@ import styles from "./Details.module.css";
 export default function Details() {
   const [value, setValue] = React.useState("1");
 
+  const tabStyle = {
+    color: "black",
+    fontFamily: `"Poppins", sans-serif`,
+  };
+  const panelStyle = {
+    color: "white",
+    fontFamily: `"Poppins", sans-serif`,
+  };
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -20,19 +29,35 @@ export default function Details() {
         sx={{
           width: "100%",
           typography: "body1",
+          margin: "0.5rem",
         }}
       >
         <TabContext value={value}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Box
+            sx={{
+              borderBottom: 1,
+              borderColor: "divider",
+              backgroundColor: "white",
+              display: "flex",
+              justifyContent: "center",
+              borderRadius: "0.5rem",
+            }}
+          >
             <TabList onChange={handleChange} aria-label="lab API tabs example">
-              <Tab label="Item One" value="1" />
-              <Tab label="Item Two" value="2" />
-              <Tab label="Item Three" value="3" />
+              <Tab label="Item One" value="1" sx={tabStyle} />
+              <Tab label="Item Two" value="2" sx={tabStyle} />
+              <Tab label="Item Three" value="3" sx={tabStyle} />
             </TabList>
           </Box>
-          <TabPanel value="1">Item One</TabPanel>
-          <TabPanel value="2">Item Two</TabPanel>
-          <TabPanel value="3">Item Three</TabPanel>
+          <TabPanel value="1" sx={panelStyle}>
+            Item One
+          </TabPanel>
+          <TabPanel value="2" sx={panelStyle}>
+            Item Two
+          </TabPanel>
+          <TabPanel value="3" sx={panelStyle}>
+            Item Three
+          </TabPanel>
         </TabContext>
       </Box>
     </div>
