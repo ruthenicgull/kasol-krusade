@@ -34,6 +34,25 @@
   text-align: center;
 }
 
+.hero_item {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 0.25rem 1rem;
+  border-radius: 0.25rem;
+  backdrop-filter: blur(5px);
+  font-family: var(--primary-font);
+}
+
+.hero_date {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+
+.hero_deadline {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
 .button {
   padding: 0.5rem 2rem;
   border-radius: 2rem;

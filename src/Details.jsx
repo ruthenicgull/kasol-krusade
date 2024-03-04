@@ -44,6 +44,9 @@ export default function Details() {
               display: "flex",
               justifyContent: "center",
               borderRadius: "0.5rem",
+              width: "fit-content",
+              margin: "0 auto",
+              padding: "0 0.5rem",
             }}
           >
             <TabList onChange={handleChange} aria-label="lab API tabs example">
@@ -59,7 +62,7 @@ export default function Details() {
             <Itenary />
           </TabPanel>
           <TabPanel value="3" sx={panelStyle}>
-            Item Three
+            Coming Soon...
           </TabPanel>
         </TabContext>
       </Box>
