@@ -56,8 +56,17 @@ function Booking() {
 
     let badFields = allFieldsValid();
     if (badFields.length > 0) {
-      let fields = badFields.join(", ");
-      alert(fields + " are invalid!. Please fill them again");
+      let alertString = "";
+      for (let i = 0; i < badFields.length; i++) {
+        if (badFields[i] == "Phone Number" || badFields[i] == "Roll Number") {
+          alertString += `${badFields[i]} is invalid.\n`;
+        }
+        if (badFields[i] == "Email") {
+          alertString += "Email address is invalid.\n";
+        }
+      }
+      alertString += "Please fill all the fields correctly!";
+      alert(alertString);
       return;
     }
 
