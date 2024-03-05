@@ -13,7 +13,7 @@ export default function Details() {
   const [value, setValue] = React.useState("1");
 
   const tabStyle = {
-    color: "black",
+    color: "white",
     fontFamily: `"Poppins", sans-serif`,
     fontSize: "0.8rem",
   };
@@ -41,19 +41,26 @@ export default function Details() {
             sx={{
               borderBottom: 1,
               borderColor: "divider",
-              backgroundColor: "white",
+              backgroundColor: "black",
               display: "flex",
               justifyContent: "center",
               borderRadius: "0.5rem",
-              width: "fit-content",
+              width: "90%",
               margin: "0 auto",
               padding: "0 0.5rem",
             }}
           >
-            <TabList onChange={handleChange} aria-label="lab API tabs example">
+            <TabList
+              onChange={handleChange}
+              aria-label="lab API tabs example"
+              variant="scrollable"
+              orientation="horizontal"
+              allowScrollButtonsMobile={true}
+            >
               <Tab label="Payment" value="1" sx={tabStyle} />
               <Tab label="Itenary" value="2" sx={tabStyle} />
               <Tab label="Sights" value="3" sx={tabStyle} />
+              <Tab label="Brochure" value="4" sx={tabStyle} />
             </TabList>
           </Box>
           <TabPanel value="1" sx={panelStyle}>
@@ -64,6 +71,12 @@ export default function Details() {
           </TabPanel>
           <TabPanel value="3" sx={panelStyle}>
             <Gallery />
+          </TabPanel>
+          <TabPanel value="4" sx={panelStyle}>
+            <iframe
+              className={styles.brochureFrame}
+              src="/kasol_krusade_brochure.pdf"
+            ></iframe>
           </TabPanel>
         </TabContext>
       </Box>

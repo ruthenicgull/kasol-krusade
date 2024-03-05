@@ -20,3 +20,11 @@
   font-size: 2rem;
   font-weight: 600;
 }
+
+.brochureFrame {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 40rem;
+  height: 70vh;
+}
