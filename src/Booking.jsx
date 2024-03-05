@@ -13,6 +13,7 @@ import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ReviewBooking from "./ReviewBooking";
 
 function Booking() {
   const [gender, setGender] = useState("");
@@ -117,6 +118,7 @@ function Booking() {
           email: email,
           upi: upi,
           refId: `${roll}${upi}`,
+          verificationStatus: "not verified",
           paymentScreenshot: image,
         });
         alert("Booking recorded successfully!");
@@ -385,7 +387,7 @@ function Booking() {
             )}
           </TabPanel>
           <TabPanel value="2" sx={panelStyle}>
-            Coming Soon...
+            <ReviewBooking />
           </TabPanel>
         </TabContext>
       </Box>
