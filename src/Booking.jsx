@@ -179,7 +179,7 @@ function Booking() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.form_header}>ENTER YOUR DETAILS HERE</h2>
+      <h2 className={styles.form_header}>Enter Your Details Here</h2>
       <form className={styles.form_container}>
         <InputField
           id="name"

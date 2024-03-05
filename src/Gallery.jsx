@@ -7,21 +7,37 @@ import imageData from "./gallery.json";
 
 export default function Gallery() {
   const [itemData, setItemData] = useState([]);
+  const [isSmallScreen, setIsSmallScreen] = useState(0);
 
   useEffect(() => {
     setItemData(imageData);
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 700) {
+        setIsSmallScreen(2);
+      } else if (window.innerWidth <= 1000) {
+        setIsSmallScreen(1);
+      } else setIsSmallScreen(0);
+      // setIsSmallScreen(window.innerWidth <= 700);
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <ImageList
       sx={{
-        maxWidth: "40rem",
         height: "60vh",
         margin: "0 auto",
         borderRadius: "0.5rem",
       }}
       className={styles.image_list}
-      cols={3}
+      cols={isSmallScreen == 2 ? 1 : isSmallScreen == 1 ? 2 : 3}
       rowHeight={164}
     >
       {itemData.map((item) => (
