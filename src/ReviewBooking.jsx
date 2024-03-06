@@ -19,16 +19,16 @@ function ReviewBooking() {
     const querySnapshot = await getDocs(q);
     // console.log(querySnapshot);
 
-    if (querySnapshot.length == 0) {
-      setStatus("nf");
-      return;
-    }
-
-    let verification;
+    let verification = "";
 
     querySnapshot.forEach((doc) => {
       verification = doc.data().verificationStatus;
     });
+
+    if (verification == "") {
+      setStatus("nf");
+      return;
+    }
 
     setStatus(verification);
   }
@@ -50,7 +50,7 @@ function ReviewBooking() {
           Review
         </button>
         {status == "nf" && <p style={{ color: "lightcoral" }}>Not Found</p>}
-        {status == "Not verified" && (
+        {status == "not verified" && (
           <>
             <p style={{ color: "yellow" }}>{status}</p>
             <p>Your booking has been recorded but not verified</p>
