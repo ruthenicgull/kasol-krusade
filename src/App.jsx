@@ -5,6 +5,7 @@ import Booking from "./Booking";
 import { useRef } from "react";
 import Faqs from "./Faqs";
 import Details from "./Details";
+import Footer from "./Footer";
 
 function App() {
   const booking = useRef(null);
@@ -44,6 +45,8 @@ function App() {
       <div ref={faqs}>
         <Faqs />
       </div>
+
+      <Footer />
     </>
   );
 }
