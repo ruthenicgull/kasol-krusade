@@ -43,17 +43,17 @@ export default function Gallery() {
       {itemData.map((item) => (
         <ImageListItem key={item.img}>
           <img
-            srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
-            src={`${item.img}?w=248&fit=crop&auto=format`}
+            // srcSet={`${item.img}`}
+            src={item.img}
             alt={item.title}
             loading="lazy"
           />
-          <ImageListItemBar
+          {/* <ImageListItemBar
             title={item.title}
             sx={{
               fontFamily: "var(--primary-font)",
             }}
-          />
+          /> */}
         </ImageListItem>
       ))}
     </ImageList>

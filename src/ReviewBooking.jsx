@@ -6,6 +6,8 @@ import { db } from "./firebase";
 function ReviewBooking() {
   const [reference, setReference] = useState("");
   const [status, setStatus] = useState("");
+  const [name, setName] = useState("");
+  const [undertaking, setUndertaking] = useState("");
 
   function handleReferenceChange(event) {
     setReference(event.target.value);
@@ -20,9 +22,13 @@ function ReviewBooking() {
     // console.log(querySnapshot);
 
     let verification = "";
+    let bookingName = "";
+    let undertakingStatus = "";
 
     querySnapshot.forEach((doc) => {
       verification = doc.data().verificationStatus;
+      bookingName = doc.data().name;
+      undertakingStatus = doc.data().undertaking;
     });
 
     if (verification == "") {
@@ -30,6 +36,8 @@ function ReviewBooking() {
       return;
     }
 
+    setName(bookingName);
+    setUndertaking(undertakingStatus);
     setStatus(verification);
   }
 
@@ -49,19 +57,44 @@ function ReviewBooking() {
         >
           Review
         </button>
-        {status == "nf" && <p style={{ color: "lightcoral" }}>Not Found</p>}
+        {status.toLowerCase() == "nf" && (
+          <>
+            <p style={{ color: "lightcoral" }}>Not Found</p>
+            <p>There is no booking record with this reference id.</p>
+          </>
+        )}
         {status == "not verified" && (
           <>
-            <p style={{ color: "yellow" }}>{status}</p>
+            <p>
+              <strong>Name</strong>: {name.toUpperCase()}
+            </p>
+            <p>
+              <strong>Undertaking Status</strong>: {undertaking.toUpperCase()}
+            </p>
+            <p style={{ color: "yellow" }}>{status.toUpperCase()}</p>
             <p>Your booking has been recorded but not verified</p>
           </>
         )}
-        {status == "verified" && (
-          <p style={{ color: "lightgreen" }}>{status}</p>
-        )}
-        {status == "invalid" && (
+        {status.toLowerCase() == "verified" && (
           <>
-            <p style={{ color: "red" }}>{status}</p>
+            <p>
+              <strong>Name</strong>: {name.toUpperCase()}
+            </p>
+            <p>
+              <strong>Undertaking Status</strong>: {undertaking.toUpperCase()}
+            </p>
+            <p style={{ color: "lightgreen" }}>{status.toUpperCase()}</p>
+          </>
+        )}
+        {status.toLowerCase() == "invalid" && (
+          <>
+            <p>
+              <strong>Name</strong>: {name.toUpperCase()}
+            </p>
+            <p>
+              <strong>Undertaking Status</strong>: {undertaking.toUpperCase()}
+            </p>
+            <p style={{ color: "red" }}>{status.toUpperCase()}</p>
             <p>Your payment could not be processed.</p>
           </>
         )}

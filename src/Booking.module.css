@@ -112,6 +112,10 @@
   text-align: center;
 }
 
+.booked_content > p {
+  margin: 0 auto;
+}
+
 .refId {
   margin: 0 auto;
   color: white;

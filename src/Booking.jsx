@@ -119,6 +119,7 @@ function Booking() {
           upi: upi,
           refId: `${roll}${upi}`,
           verificationStatus: "not verified",
+          undertaking: "not submitted",
           paymentScreenshot: image,
         });
         alert("Booking recorded successfully!");
@@ -338,7 +339,7 @@ function Booking() {
                   {image == "" && (
                     <span
                       style={{
-                        color: "lightyellow",
+                        color: "yellow",
                         fontSize: "0.75rem",
                       }}
                     >
@@ -371,7 +372,12 @@ function Booking() {
                   <div className={styles.refId}>
                     <h3 className={styles.refIdNo}>{refId}</h3>
                     <CopyToClipboard text={refId}>
-                      <button className={styles.copy_icon}>
+                      <button
+                        className={styles.copy_icon}
+                        onClick={(event) => {
+                          event.target.style = { color: "lightgreen" };
+                        }}
+                      >
                         <ContentCopyIcon />
                       </button>
                     </CopyToClipboard>

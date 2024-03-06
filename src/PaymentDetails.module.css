@@ -15,6 +15,16 @@
   color: green;
 }
 
+.payment > p {
+  margin: 0 auto;
+}
+
+.qrs {
+  display: flex;
+  gap: 1rem;
+}
+
 .qr {
-  height: 10rem;
+  width: 10rem;
+  border-radius: 0.5rem;
 }

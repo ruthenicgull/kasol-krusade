@@ -7,9 +7,12 @@ function PaymentDetails() {
       <div className={styles.amount}>
         Amount : <span>₹7200</span>
       </div>
-      <div>
-        <p>Scan and Pay Through: </p>
-        <img className={styles.qr} src="/sample_qr.png" alt="QRCODE" />
+      <div className={styles.payment}>
+        <p>Scan and Pay Through any of the below QRs: </p>
+        <div className={styles.qrs}>
+          <img className={styles.qr} src="/sangrang_qr.png" alt="QRCODE" />
+          <img className={styles.qr} src="/sangrang_qr.png" alt="QRCODE" />
+        </div>
       </div>
     </div>
   );
